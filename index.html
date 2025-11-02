@@ -62,10 +62,10 @@ body{margin:0;background:linear-gradient(180deg,#fffafc 0%,#fff0f6 100%);font-fa
   </div>
 
   <div class="gallery" id="gallery">
-    <img src="assets/img1.jpg" class="photo" alt="Apsy photo 1">
-    <img src="assets/img2.jpg" class="photo" alt="Apsy photo 2">
-    <img src="assets/img3.jpg" class="photo" alt="Apsy photo 3">
-    <img src="assets/img4.jpg" class="photo" alt="Apsy photo 4">
+    <img src="assets/images/img1.jpg" class="photo" alt="Apsy photo 1">
+    <img src="assets/images/img2.jpg" class="photo" alt="Apsy photo 2">
+    <img src="assets/images/img3.jpg" class="photo" alt="Apsy photo 3">
+    <img src="assets/images/img4.jpg" class="photo" alt="Apsy photo 4">
   </div>
 
   <div class="center">
@@ -83,7 +83,7 @@ body{margin:0;background:linear-gradient(180deg,#fffafc 0%,#fff0f6 100%);font-fa
 <button class="heartBtn" id="heart">❤️</button>
 <div class="secret" id="secret">Hey Apsy, you make life feel lighter.</div>
 
-<audio id="music" src="assets/music.mp3" preload="none"></audio>
+<audio id="music" src="assets/music/Dekha Hi Nahi - Osho Jain.mp3" preload="none"></audio>
 
 <script>
 // order and slideshow behavior: gentle auto-advance but allow tap to change
@@ -106,8 +106,18 @@ heart.addEventListener('click', ()=>{
 });
 
 // play/pause buttons
-document.getElementById('play').addEventListener('click', ()=>{ music.play(); document.getElementById('play').style.display='none'; document.getElementById('pause').style.display='inline-block'; secret.style.display='block'; });
-document.getElementById('pause').addEventListener('click', ()=>{ music.pause(); document.getElementById('pause').style.display='none'; document.getElementById('play').style.display='inline-block'; secret.style.display='none'; });
+document.getElementById('play').addEventListener('click', ()=>{
+  music.play();
+  document.getElementById('play').style.display='none';
+  document.getElementById('pause').style.display='inline-block';
+  secret.style.display='block';
+});
+document.getElementById('pause').addEventListener('click', ()=>{
+  music.pause();
+  document.getElementById('pause').style.display='none';
+  document.getElementById('play').style.display='inline-block';
+  secret.style.display='none';
+});
 
 // petals + sparkles
 for(let i=0;i<22;i++){
@@ -132,7 +142,13 @@ for(let i=0;i<14;i++){
 // glow on name when scrolled into view
 const title = document.querySelector('.title');
 const obs = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{ if(e.isIntersecting){ title.style.textShadow = '0 6px 26px rgba(216,58,111,0.18)'; } else { title.style.textShadow='0px 0px 6px #ffcce9'; } })
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      title.style.textShadow = '0 6px 26px rgba(216,58,111,0.18)';
+    } else {
+      title.style.textShadow='0px 0px 6px #ffcce9';
+    }
+  })
 },{threshold:0.5});
 obs.observe(title);
 </script>
